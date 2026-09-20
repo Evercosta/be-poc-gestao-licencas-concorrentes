@@ -1,4 +1,5 @@
 /node_modules
+schema.sql
 
 # Variáveis de ambiente e segredos
 .env
