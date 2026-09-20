@@ -15,3 +15,8 @@ app.use('/', authRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`API rodando na porta ${port}`));
+
+// Nunca deixa um erro assíncrono não tratado derrubar o processo em silêncio —
+// loga e mantém o servidor no ar, para que o log mostre a causa real de um 502.
+process.on('unhandledRejection', (err) => console.error('unhandledRejection:', err));
+process.on('uncaughtException', (err) => console.error('uncaughtException:', err));
